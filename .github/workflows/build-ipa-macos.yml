@@ -1,6 +1,5 @@
-# PHƯƠNG ÁN DỰ PHÒNG: build IPA trên macOS runner của GitHub (có sẵn Xcode),
-# dùng khi không muốn/không thể tải Xcode.xip về Linux.
-# Chạy tay: tab Actions → "Build IPA (macOS)" → Run workflow.
+# Cách build chính: IPA build trên macOS runner của GitHub (có sẵn Xcode) — máy Linux không cần Xcode.
+# Chạy từ máy: ./scripts/release-ci.sh "ghi chú"   (hoặc tay: tab Actions → "Build IPA (macOS)" → Run workflow)
 # Kết quả: artifact HelloWorld-ipa; nếu nhập tag (vd v1.0.0) thì upload luôn vào Release đó.
 name: Build IPA (macOS)
 
