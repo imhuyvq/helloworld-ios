@@ -1,0 +1,12 @@
+.DS_Store
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
+
+# Output của xtool (HelloWorld.app / HelloWorld.ipa) — IPA đi lên GitHub Releases, không commit
+/xtool
+/dist

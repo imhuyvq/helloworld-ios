@@ -1,0 +1,8 @@
+version: 1
+# Bundle Identifier của app (phải khớp "bundleIdentifier" trong repo.json)
+bundleID: com.huyvo.helloworld
+# Info.plist bổ sung: được MERGE đè lên Info.plist mặc định xtool sinh ra
+# (dùng để set version, tên hiển thị...)
+infoPath: Info.plist
+# Icon: 1 file PNG (xtool chép vào .app và set CFBundleIconFile). Khuyên dùng 1024x1024, không alpha.
+iconPath: Resources/AppIcon.png

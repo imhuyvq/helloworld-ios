@@ -1,0 +1,38 @@
+{
+  "name": "HelloWorld Source",
+  "identifier": "com.huyvo.helloworld.source",
+  "subtitle": "Demo pipeline xtool → GitHub Releases → KSign",
+  "description": "Source thử nghiệm chứa một app SwiftUI Hello World build bằng xtool trên Linux.",
+  "iconURL": "https://raw.githubusercontent.com/imhuyvq/helloworld-ios/main/Resources/AppIcon.png",
+  "website": "https://github.com/imhuyvq/helloworld-ios",
+  "tintColor": "#34C759",
+  "apps": [
+    {
+      "name": "Hello World",
+      "bundleIdentifier": "com.huyvo.helloworld",
+      "developerName": "imhuyvq",
+      "subtitle": "App SwiftUI tối giản",
+      "localizedDescription": "Chỉ hiển thị dòng chữ Hello World và version. Dùng để chạy thử pipeline build → release → cài qua KSign.",
+      "iconURL": "https://raw.githubusercontent.com/imhuyvq/helloworld-ios/main/Resources/AppIcon.png",
+      "tintColor": "#34C759",
+      "category": "developer",
+      "screenshots": [],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "buildVersion": "1",
+          "date": "2026-11-18",
+          "localizedDescription": "Bản đầu tiên.",
+          "downloadURL": "https://github.com/imhuyvq/helloworld-ios/releases/download/v1.0.0/HelloWorld.ipa",
+          "size": 0,
+          "minOSVersion": "16.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": []
+}

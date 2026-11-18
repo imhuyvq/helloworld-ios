@@ -1,0 +1,49 @@
+# PHƯƠNG ÁN DỰ PHÒNG: build IPA trên macOS runner của GitHub (có sẵn Xcode),
+# dùng khi không muốn/không thể tải Xcode.xip về Linux.
+# Chạy tay: tab Actions → "Build IPA (macOS)" → Run workflow.
+# Kết quả: artifact HelloWorld-ipa; nếu nhập tag (vd v1.0.0) thì upload luôn vào Release đó.
+name: Build IPA (macOS)
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag release để upload IPA (để trống = chỉ tạo artifact)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install xtool
+        run: |
+          brew install xtool-org/tap/xtool
+          xtool --help | head -3
+          xcrun -sdk iphoneos --show-sdk-path
+
+      - name: Build unsigned IPA
+        run: xtool dev build --ipa -c release
+
+      - name: Inspect IPA
+        run: python3 -I scripts/ipa_info.py xtool/HelloWorld.ipa
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HelloWorld-ipa
+          path: xtool/HelloWorld.ipa
+
+      - name: Upload to release
+        if: ${{ inputs.tag != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "HelloWorld ${TAG#v}" --notes "Built on macOS runner"
+          gh release upload "$TAG" xtool/HelloWorld.ipa --clobber
+          echo "size=$(stat -f %z xtool/HelloWorld.ipa) bytes — chạy ./scripts/update-source.sh trên máy với IPA tải về để cập nhật repo.json"

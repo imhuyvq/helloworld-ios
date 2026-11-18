@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Version người dùng thấy (KSign/AltStore so sánh với "version" trong repo.json) -->
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<!-- Build number: tăng mỗi lần build/phát hành (số nguyên) -->
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<!-- Tên hiện dưới icon trên Home Screen -->
+	<key>CFBundleDisplayName</key>
+	<string>Hello World</string>
+</dict>
+</plist>
